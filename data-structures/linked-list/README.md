@@ -28,3 +28,5 @@
   * Need indexed/random access to elements
   * Memory/space is a concern
   * Need speed iterating through elements
+
+## [Doubly Linked List](./doubly)

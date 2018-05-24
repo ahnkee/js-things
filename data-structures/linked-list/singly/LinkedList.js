@@ -16,6 +16,24 @@ module.exports = class SinglyLinkedList {
   }
 
   /**
+   * Add a new Node to the front of the list
+   * @param {*} value
+   * @return {Node}
+   */
+  unshift(value) {
+    const node = new Node(value);
+
+    if (this.size()) {
+      node.next = this.head;
+    }
+
+    this.head = node;
+    this._length++;
+
+    return node;
+  }
+
+  /**
    * Add a new Node to the end of the list
    * @param {*} value - value to be stored in Node
    * @return {Node} instance of created Node
@@ -26,10 +44,7 @@ module.exports = class SinglyLinkedList {
 
     // if list is empty
     if (!current) {
-      this.head = node;
-      this._length++;
-
-      return node;
+      return this.unshift(value);
     }
 
     // if list contains at least one node
@@ -52,7 +67,10 @@ module.exports = class SinglyLinkedList {
     let current = this.head;
 
     while (current) {
-      if (current.value === value) return current;
+      if (current.value === value) {
+        return current;
+      }
+
       current = current.next;
     }
 

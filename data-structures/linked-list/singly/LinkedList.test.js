@@ -23,6 +23,23 @@ test('.size() should return correct count', ({is}) => {
   is(list.size(), 2);
 });
 
+test('.unshift() first element', ({is}) => {
+  const list = new LinkedList();
+  list.unshift(1);
+
+  is(list.size(), 1);
+});
+
+test('.unshift() to existing list', ({is}) => {
+  const list = new LinkedList();
+  list.push(1);
+  list.unshift(2);
+
+  is(list.size(), 2);
+  is(list.head.value, 2);
+  is(list.head.next.value, 1);
+});
+
 test('.find() first element', ({is}) => {
   const list = new LinkedList();
   list.push(1);
